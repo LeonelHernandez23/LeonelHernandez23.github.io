@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificados</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #e75454;
+        }
+
+        p {
+            text-align: center;
+            margin: 20px auto;
+            width: 60%;
+            color: white;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .certificados-section {
+            background-color: #1e1e1e; /* Fondo destacado */
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin: 20px auto;
+            max-width: 1000px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .certificados-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            padding-top: 20px;
+        }
+
+        .certificados-container img {
+            width: 150px;
+            height: auto;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            transition: transform 0.5s, opacity 0.5s;
+            opacity: 0;
+            transform: translateY(30px);
+            cursor: pointer;
+        }
+
+        .certificados-container img.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos del modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content img {
+            width: 80%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-content p {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #e75454;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .download-btn:hover {
+            background-color: #ff6666;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <nav>
+            <div class="logo">Leonel <span>Hernández</span></div>
+            <div class="links">
+                <a href="index.html">Inicio</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="certificados.html">Certificados</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </nav>
+        <h1>Certificados</h1>
+        <p>Estos son algunos de los certificados obtenidos a lo largo de mi carrera profesional.</p>
+        
+        <!-- Sección con fondo destacado -->
+        <div class="certificados-section">
+            <div class="certificados-container">
+                <!-- Certificados con opción de descarga -->
+                <img src="certificado1.png" alt="Certificado 1" class="hidden" data-descripcion="Certificado en Desarrollo Web - Platzi." data-download="certificado1.pdf">
+                <img src="certificado2.png" alt="Certificado 2" class="hidden" data-descripcion="Certificado de JavaScript Avanzado - Udemy." data-download="certificado2.pdf">
+                <img src="certificado3.png" alt="Certificado 3" class="hidden" data-descripcion="Certificación en React.js - Coursera." data-download="certificado3.pdf">
+                <img src="paulo.jpg" alt="Certificado 4" class="hidden" data-descripcion="Certificado en Diseño UX/UI - Edutin Academy." data-download="certificado4.pdf">
+            </div>
+        </div>
+
+        <!-- Modal para mostrar imagen y descripción -->
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <span class="close-modal" id="close-modal">&times;</span>
+                <img id="modal-img" src="" alt="Certificado">
+                <p id="modal-desc"></p>
+                <a id="download-link" href="#" download class="download-btn">Descargar Certificado</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const imagenes = document.querySelectorAll('.hidden');
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const modalDesc = document.getElementById('modal-desc');
+        const downloadLink = document.getElementById('download-link');
+        const closeModal = document.getElementById('close-modal');
+
+        // Animación de aparición al hacer scroll
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        imagenes.forEach(img => observer.observe(img));
+
+        // Mostrar modal al hacer clic en la imagen
+        imagenes.forEach(img => {
+            img.addEventListener('click', () => {
+                modalImg.src = img.src;
+                modalDesc.textContent = img.dataset.descripcion;
+                downloadLink.href = img.dataset.download;
+                modal.style.display = 'flex';
+            });
+        });
+
+        // Cerrar modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        // Cerrar modal al hacer clic fuera del contenido
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -4,8 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            overflow-x: hidden;
+            font-family: 'Poppins', sans-serif;
+            background-color: #000;
+            color: white;
+        }
+
+        .proyectos-section {
+            background-color: #1e1e1e;
+            padding: 50px;
+            margin: 40px auto;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.5);
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #e75454;
+            margin-bottom: 30px;
+        }
+
+        p {
+            margin-bottom: 40px;
+            font-size: 1.1em;
+            color: #ddd;
+        }
+
+        .proyectos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+
+        .proyecto {
+            background-color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .proyecto:hover {
+            transform: translateY(-10px);
+        }
+
+        .proyecto img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .proyecto-info {
+            padding: 20px;
+            color: #ddd;
+        }
+
+        .proyecto-info h2 {
+            color: #e75454;
+            margin-bottom: 15px;
+        }
+
+        .proyecto-info p {
+            margin-bottom: 20px;
+            font-size: 0.95em;
+            line-height: 1.5;
+        }
+
+        .proyecto-info a {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #e75454;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            font-weight: 600;
+        }
+
+        .proyecto-info a:hover {
+            background-color: #ff6666;
+        }
+    </style>
 </head>
 <body>
-    <h1>Página de Proyectos</h1>
+    <div class="background">
+        <nav>
+            <div class="logo">Leonel <span>Hernández</span></div>
+            <div class="links">
+                <a href="index.html">Inicio</a>
+                <a href="proyectos.html">Proyectos</a>
+                <a href="certificados.html">Certificados</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </nav>
+
+        <div class="proyectos-section">
+            <h1>Mis Proyectos</h1>
+            <p>Aquí te presento algunos de mis proyectos destacados, donde aplico mis habilidades y conocimientos en desarrollo web.</p>
+
+            <!-- Contenedor de proyectos -->
+            <div class="proyectos-container">
+                <!-- Proyecto 1 -->
+                <div class="proyecto">
+                    <img src="proyecto1.jpg" alt="Proyecto 1">
+                    <div class="proyecto-info">
+                        <h2>Proyecto E-commerce</h2>
+                        <p>Desarrollo de un sitio de comercio electrónico con integración de pagos y carrito de compras.</p>
+                        <a href="https://www.upn.edu.pe/investigacion/robot-de-monitoreo-autonomo-para-la-deteccion-de-derrames-de-aceite-objetos-metalicos" target="_blank">Ver Proyecto</a>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="proyecto">
+                    <img src="proyecto2.jpg" alt="Proyecto 2">
+                    <div class="proyecto-info">
+                        <h2>Gestor de Tareas</h2>
+                        <p>Aplicación web para gestionar tareas, con opciones de registro de usuario y organización de actividades.</p>
+                        <a href="https://www.upn.edu.pe/investigacion/procedimiento-para-elaborar-un-manto-para-la-fabricacion-de-productos-base-de-cascara" target="_blank">Ver Proyecto</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

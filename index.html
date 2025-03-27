@@ -5,40 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio de Leonel Hernández</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Fondo negro para toda la pantalla -->
     <div class="background">
         <nav>
             <div class="logo">Leonel <span>Hernández</span></div>
             <div class="links">
-                <!-- Enlaces a páginas en blanco -->
                 <a href="proyectos.html" target="_blank">Proyectos</a>
                 <a href="certificados.html" target="_blank">Certificados</a>
                 <a href="contacto.html" target="_blank">Contacto</a>
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
             </div>
         </nav>
-        <div class="container">
-            <div class="circle">
-                <img src="paulo.jpg" alt="Foto de Leonel Hernández" class="profile-pic">
-            </div>
-            <div class="info">
-                <h1>Hi, It's <span>Leonel</span></h1>
-                <h2>I'm a <span>Developer</span></h2>
-                <p>Desarrollador web enfocado en crear soluciones funcionales y estéticas.<br>
-                   Apasionado por el código limpio y el diseño atractivo.</p>
-                <a href="LeonelHernandezCV.pdf" class="descargar" download>Descargar mi CV</a>
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/leonel-hernandez-lavado-258117353/" target="_blank"><img src="linkedin.png" alt="LinkedIn" class="social-icon"></a>
-                    <a href="https://github.com/LeonelHernandez23" target="_blank"><img src="github.png" alt="GitHub" class="social-icon"></a>
-                    <a href="https://x.com/LeoAsper23" target="_blank"><img src="x.png" alt="X" class="social-icon"></a>
-                    <a href="https://www.instagram.com/leoasper23/" target="_blank"><img src="instagram.png" alt="Instagram" class="social-icon"></a>
+        <div class="main-content">
+            <div class="skills">
+                <h2>Mis Habilidades</h2>
+                <div class="skill">
+                    <i class="fab fa-html5 skill-icon"></i>
+                    <div class="progress-bar" data-progress="89">
+                        <div class="progress" style="--progress-width: 89%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-css3-alt skill-icon"></i>
+                    <div class="progress-bar" data-progress="87">
+                        <div class="progress" style="--progress-width: 87%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-js-square skill-icon"></i>
+                    <div class="progress-bar" data-progress="80">
+                        <div class="progress" style="--progress-width: 80%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-php skill-icon"></i>
+                    <div class="progress-bar" data-progress="50">
+                        <div class="progress" style="--progress-width: 50%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fas fa-gem skill-icon"></i>
+                    <div class="progress-bar" data-progress="20">
+                        <div class="progress" style="--progress-width: 20%;"></div>
+                    </div>
+                </div>
+                <div class="skill">
+                    <i class="fab fa-python skill-icon"></i>
+                    <div class="progress-bar" data-progress="15">
+                        <div class="progress" style="--progress-width: 15%;"></div>
+                    </div>
+                </div>
+            </div>            
+            <div class="container">
+                <div class="circle">
+                    <img src="paulo.jpg" alt="Foto de Leonel Hernández" class="profile-pic">
+                </div>
+                <div class="info">
+                    <h1>Hi, It's <span>Leonel</span></h1>
+                    <h2>I'm a <span>Developer</span></h2>
+                    <p>Desarrollador web enfocado en crear soluciones funcionales y estéticas.<br>Apasionado por el código limpio y el diseño atractivo.</p>
+                    <a href="LeonelHernandezCV.pdf" class="descargar" download>Descargar mi CV</a>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/leonel-hernandez-lavado-258117353/" target="_blank"><img src="linkedin.png" alt="LinkedIn" class="social-icon"></a>
+                        <a href="https://github.com/LeonelHernandez23" target="_blank"><img src="github.png" alt="GitHub" class="social-icon"></a>
+                        <a href="https://x.com/LeoAsper23" target="_blank"><img src="x.png" alt="X" class="social-icon"></a>
+                        <a href="https://www.instagram.com/leoasper23/" target="_blank"><img src="instagram.png" alt="Instagram" class="social-icon"></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
